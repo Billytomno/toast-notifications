@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--green: #3eb56e;
+	--dark-green: #319f5d;
+	--blue: #67a4bf;
+	--dark-blue: #5291ae;
+	--grey: #c3d1d9;
+	--dark-grey: #9eb0ba;
+	--red: #c64444;
+	--dark-red: #a90d0e;
+	--bkg: #2f3442;
+	--white: #ebebeb;
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	background-color: var(--bkg);
+	font-family: "Poppins", sans-serif;
+}
+
+.container {
+	width: 400px;
+	height: 200px;
+	position: relative;
+}
+
+/* Toast Notifications
+------------------------------------------*/
+.toast-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 350px;
+	height: 100px;
+	overflow: hidden;
+}
+
+.toast {
+	position: absolute;
+	width: 350px;
+	display: grid;
+	grid-template-columns: 6vmin 1fr;
+	align-items: center;
+	border-radius: 5px;
+	overflow: hidden;
+	--padding: 0.8em;
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+		rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+	opacity: 0;
+	transform: translateY(120px);
+	transition: transform 1500ms cubic-bezier(0.16, 0, 0, 1.42);
+}
+
+.toast:nth-child(1) .toast-msg {
+	background-color: var(--green);
+}
+.toast:nth-child(1) .toast-icon {
+	background-color: var(--dark-green);
+}
+.toast:nth-child(2) .toast-msg {
+	background-color: var(--blue);
+}
+.toast:nth-child(2) .toast-icon {
+	background-color: var(--dark-blue);
+}
+.toast:nth-child(3) .toast-msg {
+	background-color: var(--grey);
+	color: var(--bkg);
+}
+.toast:nth-child(3) .toast-icon {
+	background-color: var(--dark-grey);
+}
+.toast:nth-child(4) .toast-msg {
+	background-color: var(--red);
+}
+.toast:nth-child(4) .toast-icon {
+	background-color: var(--dark-red);
+}
+
+.toast svg {
+	width: 24px;
+	height: 24px;
+	fill: none;
+	stroke: var(--white);
+	stroke-width: 2;
+}
+
+.toast-icon {
+	height: 100%;
+	display: grid;
+	place-items: center;
+	padding: var(--padding);
+}
+
+.toast-msg {
+	color: var(--white);
+	font-size: 0.9rem;
+	padding: var(--padding);
+}
+.toast-msg span {
+	display: block;
+	font-size: 0.7rem;
+	opacity: 0.7;
+}
+
+/* Toast Buttons
+------------------------------------------*/
+.toast-buttons {
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 350px;
+	display: flex;
+}
+.toast-buttons input {
+	appearance: none;
+}
+.toast-buttons label {
+	color: var(--white);
+	text-align: center;
+	flex: 1 100%;
+	font-size: 0.85rem;
+	padding: 0.3em;
+	cursor: pointer;
+}
+
+.toast-buttons:has(:checked) + .toast-container .toast {
+	opacity: 0;
+	transform: translateY(120px);
+	transition: transform 1500ms cubic-bezier(0.16, 0, 0, 1.42);
+}
+
+.toast-buttons:has(#btn-success:checked)
+	+ .toast-container
+	.toast[id="success"] {
+	opacity: 1;
+	transform: translateY(20px);
+}
+#btn-success:checked + label {
+	color: var(--green);
+	font-weight: bolder;
+}
+.toast-buttons:has(#btn-info:checked) + .toast-container .toast[id="info"] {
+	opacity: 1;
+	transform: translateY(20px);
+}
+#btn-info:checked + label {
+	color: var(--blue);
+	font-weight: bolder;
+}
+.toast-buttons:has(#btn-pending:checked)
+	+ .toast-container
+	.toast[id="pending"] {
+	opacity: 1;
+	transform: translateY(20px);
+}
+#btn-pending:checked + label {
+	color: var(--dark-grey);
+	font-weight: bolder;
+}
+.toast-buttons:has(#btn-error:checked) + .toast-container .toast[id="error"] {
+	opacity: 1;
+	transform: translateY(20px);
+}
+#btn-error:checked + label {
+	color: var(--red);
+	font-weight: bolder;
+}

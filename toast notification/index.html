@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pure CSS Toast Notifications</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="toast-buttons">
+        <input type="radio" name="btn-group" id="btn-success" checked />
+        <label for="btn-success">Success</label>
+
+        <input type="radio" name="btn-group" id="btn-info" />
+        <label for="btn-info">Info</label>
+
+        <input type="radio" name="btn-group" id="btn-pending" />
+        <label for="btn-pending">Pending</label>
+
+        <input type="radio" name="btn-group" id="btn-error" />
+        <label for="btn-error">Error</label>
+      </div>
+      <div class="toast-container">
+        <div class="toast" id="success">
+          <div class="toast-icon">
+            <svg>
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          </div>
+          <div class="toast-msg">
+            <p>
+              Your update is complete
+              <span>View Details</span>
+            </p>
+          </div>
+        </div>
+        <div class="toast" id="info">
+          <div class="toast-icon">
+            <svg>
+              <path d="M12 2, L12 13" />
+              <path d="M12 17, L12 20" />
+            </svg>
+          </div>
+          <div class="toast-msg">
+            <p>
+              Exception request submitted
+              <span>View Pending Request</span>
+            </p>
+          </div>
+        </div>
+        <div class="toast" id="pending">
+          <div class="toast-icon">
+            <svg>
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
+          <div class="toast-msg">
+            <p>
+              Your update is being installed
+              <span>View Updates</span>
+            </p>
+          </div>
+        </div>
+        <div class="toast" id="error">
+          <div class="toast-icon">
+            <svg>
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </div>
+          <div class="toast-msg">
+            <p>
+              Uninstall Failed
+              <span>View Details</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
